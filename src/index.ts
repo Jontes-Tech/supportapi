@@ -1,12 +1,11 @@
-import express from "express";
-import fs from "fs";
-import cors from "cors";
+import * as express from "express";
+import * as fs from "fs";
+import * as cors from "cors";
 import * as dotenv from 'dotenv'
+
 dotenv.config()
 
 const app: express.Application = express();
-
-const port: number = 3001;
 
 let corsOptions = {
   origin: ["http://127.0.0.1:5173", "https://support.jontes.page"],
@@ -28,7 +27,6 @@ app.get("/users/:email", (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`TypeScript with Express
-         http://localhost:${port}/`);
+app.listen(process.env.SUPPORTAPIPORT, () => {
+  console.log(`http://localhost:${process.env.SUPPORTAPIPORT}/`);
 });
