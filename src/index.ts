@@ -1,6 +1,8 @@
 import express from "express";
 import fs from "fs";
 import cors from "cors";
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const app: express.Application = express();
 
@@ -26,7 +28,7 @@ app.get("/users/:email", (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`TypeScript with Express
          http://localhost:${port}/`);
 });
